@@ -134,7 +134,27 @@ var insertStudent = function insertStudent(student)
 }
 
 //AGGIUNGERE QUI SOTTO NUOVE FUNZIONI
-
+/**
+ * @brief This function gets a list of students, given the mark
+ * @param mark
+ * @return the list of students or null if none
+ */
+var searchStudentMark = function searchStudentMark(mark)
+{
+	var ret = [];
+	for (i=0; i < studentList.length; i++)
+	{
+		if (mark[0] === ">" && studentList[i].mark > mark)
+		{
+			ret.push(studentList[i])
+		}
+		else if (mark[0] === "<" && studentList[i].mark < mark)
+		{
+			ret.push(studentList[i]);
+		}
+	}
+    if (ret.length > 0) return ret else return null;
+}
 
 
 //export functions
@@ -144,3 +164,4 @@ exports.deleteStudentID = deleteStudentID;
 exports.deleteStudentSSN = deleteStudentSSN; 
 exports.insertStudent = insertStudent;  
 exports.getList = getList; 
+exports.searchStudentMark = searckStudentMark;
