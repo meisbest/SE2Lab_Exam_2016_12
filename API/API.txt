@@ -75,8 +75,8 @@ paths:
             
   /searchByMark:
     post:
-      summary: return students that match a criteria
-      description: it returns a list of students that match a criteria
+      summary: return students that match a mark
+      description: it returns a list of students giver a mark that is ">" or "<" and a number from 0 to 9
       parameters:
         - name: mark
           in: formData
@@ -90,6 +90,14 @@ paths:
             type: array
             items:
               $ref: "#/definitions/student"
+        406:
+          description: ID or SSN error
+          schema: 
+            properties:
+              error:
+                type: integer
+        404:
+          description: no students with that ID or SSN
           
 definitions:
   student:
